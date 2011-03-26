@@ -1,0 +1,23 @@
+#profile_company       { width: 90%; }
+#profile_company_site  { width: 90%; }
+#profile_position      { width: 90%; }
+#profile_personal_site { width: 90%; }
+#profile_blog          { width: 90%; }
+#profile_facebook      { width: 90%; }
+#profile_twitter       { width: 90%; }
+#profile_linkedin      { width: 90%; }
+input.empty {
+    color: #999;
+}
+div.author p {
+    margin: 0px;
+}
+div.author p.icons {
+    padding-top: 3px;
+}
+div.author p.icons a {
+    margin-right: 2px;
+}
+div.small .company, div.small .position {
+    font-size: 8pt;
+}

@@ -1,0 +1,15 @@
+ru:
+  label_company: Компания
+  label_company_site: Сайт компании
+  label_position: Должность
+  label_project_of_interest: Интересующий проект
+  label_personal_site: Личная веб-страница
+  label_blog: Блог
+  label_facebook: Facebook
+  label_facebook_profile_id_or_username: ID/имя пользователя в Facebook
+  label_twitter: Twitter
+  label_twitter_username: Имя пользователя в Twitter
+  label_linkedin: LinkedIn
+
+  sample_facebook_profile_id: например, 100000066953233
+  sample_twitter_username: например, softjourn

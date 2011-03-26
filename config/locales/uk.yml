@@ -1,0 +1,15 @@
+uk:
+  label_company: Компанія
+  label_company_site: Сайт компанії
+  label_position: Посада
+  label_project_of_interest: Проект, який цікавить
+  label_personal_site: Персональна веб-сторінка
+  label_blog: Блог
+  label_facebook: Facebook
+  label_facebook_profile_id_or_username: ID/ім'я користувача у Facebook
+  label_twitter: Twitter
+  label_twitter_username: Ім'я користувача у Twitter
+  label_linkedin: LinkedIn
+
+  sample_facebook_profile_id: наприклад, 100000066953233
+  sample_twitter_username: наприклад, softjourn

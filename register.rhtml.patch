@@ -1,0 +1,11 @@
+--- register.rhtml.bck	2011-03-10 12:16:54.000000000 +0200
++++ register.rhtml	2011-03-10 12:18:30.000000000 +0200
+@@ -37,6 +37,8 @@
+ <% @user.custom_field_values.select {|v| v.editable? || v.required?}.each do |value| %>
+ 	<p><%= custom_field_tag_with_label :user, value %></p>
+ <% end %>
++
++<%= call_hook(:view_account_register, {:user => @user}) %>
+ <!--[eoform:user]-->
+ </div>
+ 
