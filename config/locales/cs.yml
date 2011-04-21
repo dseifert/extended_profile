@@ -1,0 +1,22 @@
+cs:
+  label_company: Společnost/firma
+  label_company_site: Firemní www stránka
+  label_position: Pozice
+  label_project_of_interest: Domácí projekt
+  label_personal_site: Osobní www stránka
+  label_blog: Blog
+  label_facebook: Facebook
+  label_facebook_profile_id_or_username: Facebook ID/účet
+  label_twitter: Twitter
+  label_twitter_username: Twitter účet
+  label_linkedin: LinkedIn
+
+  field_company_site: Firemní www stránka
+  field_personal_site: Osobní www stránka
+  field_blog: Blog
+  field_facebook: Facebook
+  field_twitter: Twitter
+  field_linkedin: LinkedIn
+
+  sample_facebook_profile_id: e.g. 100000066953233
+  sample_twitter_username: e.g. softjourn
