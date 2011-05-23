@@ -10,16 +10,12 @@ module UserPatch
 
             has_one :extended_profile, :dependent => :destroy, :class_name => 'ExtendedProfile'
 
-            safe_attributes 'profile'
+            safe_attributes 'extended_profile'
 
             validates_associated :extended_profile
             validates_presence_of :extended_profile
 
             #after_save :save_profile
-
-            def profile=(params)
-                RAILS_DEFAULT_LOGGER.info " => #{params.inspect}" # FIXME
-            end
 
         end
     end

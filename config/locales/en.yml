@@ -10,6 +10,7 @@ en:
   label_twitter: Twitter
   label_twitter_username: Twitter username
   label_linkedin: LinkedIn
+  label_require_project_of_interest: Require project of interest
 
   field_extended_profile: Extended profile
   field_company_site: Company website

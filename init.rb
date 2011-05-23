@@ -28,4 +28,6 @@ Redmine::Plugin.register :extended_profile_plugin do
     description 'Adds many new fields to user profile.'
     url 'http://projects.andriylesyuk.com/projects/redmine-profile'
     version '0.0.2'
+
+    settings :default => { :require_project => true }, :partial => 'settings/profile'
 end
