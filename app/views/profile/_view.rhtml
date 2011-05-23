@@ -1,0 +1,40 @@
+<% if user.profile[:company].present? ||
+      user.profile[:company_site].present? ||
+      user.profile[:position].present? ||
+      user.profile[:personal_site].present? ||
+      user.profile[:blog].present? ||
+      user.profile[:facebook].present? ||
+      user.profile[:twitter].present? ||
+      user.profile[:linkedin].present? %>
+
+<%= content_tag(:h3, l(:label_profile)) %>
+
+<ul>
+<% if user.profile[:company].present? %>
+  <%= content_tag(:li, l(:label_company) + ': ' + h(user.profile[:company])) %>
+<% end %>
+<% if user.profile[:company_site].present? %>
+  <%= content_tag(:li, l(:label_company_site) + ': ' + content_tag(:a, h(user.profile[:company_site]), :href => user.profile[:company_site], :class => 'external')) %>
+<% end %>
+<% if user.profile[:position].present? %>
+  <%= content_tag(:li, l(:label_position) + ': ' + h(user.profile[:position])) %>
+<% end %>
+<% if user.profile[:personal_site].present? %>
+  <%= content_tag(:li, l(:label_personal_site) + ': ' + content_tag(:a, h(user.profile[:personal_site]), :href => user.profile[:personal_site], :class => 'external')) %>
+<% end %>
+<% if user.profile[:blog].present? %>
+  <%= content_tag(:li, l(:label_blog) + ': ' + content_tag(:a, h(user.profile[:blog]), :href => user.profile[:blog], :class => 'external')) %>
+<% end %>
+<% if user.profile[:facebook].present? %>
+  <% facebook = user.profile[:facebook].match(/^[0-9]+$/) ? "http://www.facebook.com/profile.php?id=#{user.profile[:facebook]}" : "http://www.facebook.com/#{user.profile[:facebook]}" %>
+  <%= content_tag(:li, l(:label_facebook) + ': ' + content_tag(:a, h(facebook), :href => facebook, :class => 'external facebook')) %>
+<% end %>
+<% if user.profile[:twitter].present? %>
+  <%= content_tag(:li, l(:label_twitter) + ': ' + content_tag(:a, '@' + h(user.profile[:twitter]), :href => "http://twitter.com/#{user.profile[:twitter]}", :class => 'external twitter')) %>
+<% end %>
+<% if user.profile[:linkedin].present? %>
+  <%= content_tag(:li, l(:label_linkedin) + ': ' + content_tag(:a, h(user.profile[:linkedin]), :href => user.profile[:linkedin], :class => 'external linkedin')) %>
+<% end %>
+</ul>
+
+<% end %>

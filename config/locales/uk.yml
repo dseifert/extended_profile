@@ -11,5 +11,7 @@ uk:
   label_twitter_username: Ім'я користувача у Twitter
   label_linkedin: LinkedIn
 
+  field_extended_profile: Розширений профіль
+
   sample_facebook_profile_id: наприклад, 100000066953233
   sample_twitter_username: наприклад, softjourn

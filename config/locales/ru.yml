@@ -11,5 +11,7 @@ ru:
   label_twitter_username: Имя пользователя в Twitter
   label_linkedin: LinkedIn
 
+  field_extended_profile: Расширенный профиль
+
   sample_facebook_profile_id: например, 100000066953233
   sample_twitter_username: например, softjourn

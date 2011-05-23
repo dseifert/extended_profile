@@ -11,6 +11,7 @@ en:
   label_twitter_username: Twitter username
   label_linkedin: LinkedIn
 
+  field_extended_profile: Extended profile
   field_company_site: Company website
   field_personal_site: Personal website
   field_blog: Blog

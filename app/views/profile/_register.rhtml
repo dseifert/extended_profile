@@ -1,0 +1,7 @@
+<% projects = Project.all_public.active(:order => 'name') %>
+<% project_id = params[:profile] ? params[:profile][:project_id].to_i : nil %>
+
+<p>
+<%= label_tag('profile[project_id]', l(:label_project_of_interest) + ' ' + content_tag(:span, '*', :class => 'required')) %>
+<%= select_tag('profile[project_id]', options_from_collection_for_select(projects, :id, :name, project_id)) %>
+</p>

@@ -1,0 +1,57 @@
+<% projects = Project.visible.all(:order => 'name') %>
+<% profile = request.params[:company].nil? ? user.profile : request.params %>
+
+<p>
+<%= label_tag('profile[company]', l(:label_company)) %>
+<%= text_field_tag('profile[company]', profile[:company], :size => 30) %>
+</p>
+<p>
+<%= label_tag('profile[company_site]', l(:label_company_site)) %>
+<%= text_field_tag('profile[company_site]',
+                   profile[:company_site].present? ? profile[:company_site] : 'http://',
+                   :size => 30,
+                   :class => profile[:company_site].present? ? nil : 'empty',
+                   :onfocus => "if (this.value == 'http://') { this.value = ''; this.className = ''; }") %>
+</p>
+<p>
+<%= label_tag('profile[position]', l(:label_position)) %>
+<%= text_field_tag('profile[position]', profile[:position], :size => 30) %>
+</p>
+<p>
+<%= label_tag('profile[project_id]', l(:label_project_of_interest) + ' ' + content_tag(:span, '*', :class => 'required')) %>
+<%= select_tag('profile[project_id]', options_from_collection_for_select(projects, :id, :name, profile[:project_id])) %>
+</p>
+<p>
+<%= label_tag('profile[personal_site]', l(:label_personal_site)) %>
+<%= text_field_tag('profile[personal_site]',
+                   profile[:personal_site].present? ? profile[:personal_site] : 'http://',
+                   :size => 30,
+                   :class => profile[:personal_site].present? ? nil : 'empty',
+                   :onfocus => "if (this.value == 'http://') { this.value = ''; this.className = ''; }") %>
+</p>
+<p>
+<%= label_tag('profile[blog]', l(:label_blog)) %>
+<%= text_field_tag('profile[blog]',
+                   profile[:blog].present? ? profile[:blog] : 'http://',
+                   :size => 30,
+                   :class => profile[:blog].present? ? nil : 'empty',
+                   :onfocus => "if (this.value == 'http://') { this.value = ''; this.className = ''; }") %>
+</p>
+<p style="padding-bottom: 0;">
+<%= label_tag('profile[facebook]', l(:label_facebook_profile_id_or_username)) %>
+<%= text_field_tag('profile[facebook]', profile[:facebook], :size => 30) %><br/>
+<%= content_tag(:em, l(:sample_facebook_profile_id)) %>
+</p>
+<p style="padding-bottom: 0;">
+<%= label_tag('profile[twitter]', l(:label_twitter_username)) %>
+<%= text_field_tag('profile[twitter]', profile[:twitter], :size => 30) %><br/>
+<%= content_tag(:em, l(:sample_twitter_username)) %>
+</p>
+<p>
+<%= label_tag('profile[linkedin]', l(:label_linkedin)) %>
+<%= text_field_tag('profile[linkedin]',
+                   profile[:linkedin].present? ? profile[:linkedin] : 'http://',
+                   :size => 30,
+                   :class => profile[:linkedin].present? ? nil : 'empty',
+                   :onfocus => "if (this.value == 'http://') { this.value = ''; this.className = ''; }") %>
+</p>

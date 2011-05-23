@@ -1,0 +1,26 @@
+<% if user.profile[:company].present? %>
+  <% if user.profile[:company_site].present? %>
+    <%= content_tag(:a, h(user.profile[:company]), :href => user.profile[:company_site], :class => 'company') %>
+  <% else %>
+    <%= content_tag(:p, h(user.profile[:company]), :class => 'company') %>
+  <% end %>
+<% end %>
+<% if user.profile[:position].present? %>
+  <%= content_tag(:p, h(user.profile[:position]), :class => 'position') %>
+<% end %>
+<% if user.profile[:facebook].present? ||
+      user.profile[:twitter].present? ||
+      user.profile[:linkedin].present? %>
+  <p class="icons">
+    <% if user.profile[:facebook].present? %>
+      <% facebook = user.profile[:facebook].match(/^[0-9]+$/) ? "http://www.facebook.com/profile.php?id=#{user.profile[:facebook]}" : "http://www.facebook.com/#{user.profile[:facebook]}" %>
+      <%= content_tag(:a, image_tag('facebook.png', :plugin => 'extended_profile'), :href => facebook) %>
+    <% end %>
+    <% if user.profile[:twitter].present? %>
+      <%= content_tag(:a, image_tag('twitter.png', :plugin => 'extended_profile', :alt => '@' + h(user.profile[:twitter])), :href => "http://twitter.com/#{user.profile[:twitter]}") %>
+    <% end %>
+    <% if user.profile[:linkedin].present? %>
+      <%= content_tag(:a, image_tag('linkedin.png', :plugin => 'extended_profile'), :href => user.profile[:linkedin]) %>
+    <% end %>
+  </p>
+<% end %>
