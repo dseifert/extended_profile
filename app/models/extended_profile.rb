@@ -1,7 +1,8 @@
 class ExtendedProfile < ActiveRecord::Base
     belongs_to :user
 
-    validates_presence_of :user, :project_id
+    validates_presence_of :user
+    validates_presence_of :project_id, :if => Proc.new { Setting.plugin_extended_profile_plugin[:require_project] }
     validates_uniqueness_of :user_id
     validates_format_of :company_site, :with => /^(http|https):\/\//i, :if => Proc.new { |profile| !profile.company_site.blank? }
     validates_format_of :personal_site, :with => /^(http|https):\/\//i, :if => Proc.new { |profile| !profile.personal_site.blank? }

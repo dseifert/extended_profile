@@ -7,8 +7,7 @@ module MyControllerPatch
         base.send(:include, InstanceMethods)
         base.class_eval do
             unloadable
-            alias_method_chain :account, :profile
-            #after_filter :save_profile, :only => :account
+            alias_method :account, :account_with_profile
         end
     end
 
@@ -17,26 +16,24 @@ module MyControllerPatch
 
     module InstanceMethods
 
-        def account_with_profile
+        def account_with_profile # FIXME: check for 1.0.x and maybe paste above orig. code
+            @user = User.current
+            @pref = @user.pref
+            @profile = @user.profile
             if request.post?
-                @user = User.current
+                @user.safe_attributes = params[:user]
+                @user.pref.attributes = params[:pref]
                 @user.profile.attributes = params[:profile]
-                unless @user.profile.save
-                    flash[:error] = @user.profile.errors.full_messages.join(', ')
+                @user.pref[:no_self_notified] = (params[:no_self_notified] == '1')
+                if (@user.valid? & @user.valid_profile?) && @user.save
+                    @user.pref.save
+                    @user.profile.save
+                    @user.notified_project_ids = (@user.mail_notification == 'selected' ? params[:notified_project_ids] : [])
+                    set_language_if_valid(@user.language)
+                    flash[:notice] = l(:notice_account_updated)
                 end
             end
-            account_without_profile
         end
-
-        #def save_profile
-        #    if request.post? && response.redirected_to.present?
-        #        @user.profile.attributes = params[:profile]
-        #        unless @user.profile.save
-        #            flash[:error] = @user.profile.errors.full_messages.join(', ')
-        #            flash.delete(:notice)
-        #        end
-        #    end
-        #end
 
     end
 

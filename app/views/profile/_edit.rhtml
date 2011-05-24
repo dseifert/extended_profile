@@ -1,38 +1,39 @@
+<!-- FIXME: project_required? -->
 <% projects = Project.all(:conditions => Project.visible_by(user), :order => 'name') %>
 
 <p>
-<%= label_tag('profile[company]', l(:label_company)) %>
-<%= text_field_tag('profile[company]', user.profile[:company], :size => 30) %>
+  <%= label_tag('profile[company]', l(:label_company)) %>
+  <%= text_field_tag('profile[company]', user.profile[:company], :size => 30) %>
 </p>
 <p>
-<%= label_tag('profile[company_site]', l(:label_company_site)) %>
-<%= text_field_tag('profile[company_site]', user.profile[:company_site], :size => 30) %>
+  <%= label_tag('profile[company_site]', l(:label_company_site)) %>
+  <%= text_field_tag('profile[company_site]', user.profile[:company_site], :size => 30) %>
 </p>
 <p>
-<%= label_tag('profile[position]', l(:label_position)) %>
-<%= text_field_tag('profile[position]', user.profile[:position], :size => 30) %>
+  <%= label_tag('profile[position]', l(:label_position)) %>
+  <%= text_field_tag('profile[position]', user.profile[:position], :size => 30) %>
 </p>
 <p>
-<%= label_tag('profile[project_id]', l(:label_project_of_interest) + ' ' + content_tag(:span, '*', :class => 'required')) %>
-<%= select_tag('profile[project_id]', options_from_collection_for_select(projects, :id, :name, user.profile[:project_id])) %>
+  <%= label_tag('profile[project_id]', l(:label_project_of_interest) + ' ' + content_tag(:span, '*', :class => 'required')) %>
+  <%= select_tag('profile[project_id]', options_from_collection_for_select(projects, :id, :name, user.profile[:project_id])) %>
 </p>
 <p>
-<%= label_tag('profile[personal_site]', l(:label_personal_site)) %>
-<%= text_field_tag('profile[personal_site]', user.profile[:personal_site], :size => 30) %>
+  <%= label_tag('profile[personal_site]', l(:label_personal_site)) %>
+  <%= text_field_tag('profile[personal_site]', user.profile[:personal_site], :size => 30) %>
 </p>
 <p>
-<%= label_tag('profile[blog]', l(:label_blog)) %>
-<%= text_field_tag('profile[blog]', user.profile[:blog], :size => 30) %>
+  <%= label_tag('profile[blog]', l(:label_blog)) %>
+  <%= text_field_tag('profile[blog]', user.profile[:blog], :size => 30) %>
 </p>
 <p>
-<%= label_tag('profile[facebook]', l(:label_facebook_profile_id_or_username)) %>
-<%= text_field_tag('profile[facebook]', user.profile[:facebook], :size => 30) %>
+  <%= label_tag('profile[facebook]', l(:label_facebook_profile_id_or_username)) %>
+  <%= text_field_tag('profile[facebook]', user.profile[:facebook], :size => 30) %>
 </p>
 <p>
-<%= label_tag('profile[twitter]', l(:label_twitter_username)) %>
-<%= text_field_tag('profile[twitter]', user.profile[:twitter], :size => 30) %>
+  <%= label_tag('profile[twitter]', l(:label_twitter_username)) %>
+  <%= text_field_tag('profile[twitter]', user.profile[:twitter], :size => 30) %>
 </p>
 <p>
-<%= label_tag('profile[linkedin]', l(:label_linkedin)) %>
-<%= text_field_tag('profile[linkedin]', user.profile[:linkedin], :size => 30) %>
+  <%= label_tag('profile[linkedin]', l(:label_linkedin)) %>
+  <%= text_field_tag('profile[linkedin]', user.profile[:linkedin], :size => 30) %>
 </p>

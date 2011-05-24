@@ -10,9 +10,9 @@ Dispatcher.to_prepare :extended_profile_plugin do
     unless User.included_modules.include?(UserPatch)
         User.send(:include, UserPatch)
     end
-    #unless MyController.included_modules.include?(MyControllerPatch)
-    #    MyController.send(:include, MyControllerPatch)
-    #end
+    unless MyController.included_modules.include?(MyControllerPatch)
+        MyController.send(:include, MyControllerPatch)
+    end
     #unless UsersController.included_modules.include?(UsersControllerPatch)
     #    UsersController.send(:include, UsersControllerPatch)
     #end
