@@ -1,24 +1,23 @@
 require 'redmine'
 require 'dispatcher'
-require 'user'
+
+require_dependency 'principal'
+require_dependency 'user'
 
 require_dependency 'profile_hook'
 
 RAILS_DEFAULT_LOGGER.info 'Starting Extended Profile plugin for Redmine'
 
 Dispatcher.to_prepare :extended_profile_plugin do
-    unless User.included_modules.include?(UserPatch)
-        User.send(:include, UserPatch)
+    unless User.included_modules.include?(ExtendedUserPatch)
+        User.send(:include, ExtendedUserPatch)
     end
-    unless MyController.included_modules.include?(MyControllerPatch)
-        MyController.send(:include, MyControllerPatch)
+    unless MyController.included_modules.include?(MyExtendedControllerPatch)
+        MyController.send(:include, MyExtendedControllerPatch)
     end
-    #unless UsersController.included_modules.include?(UsersControllerPatch)
-    #    UsersController.send(:include, UsersControllerPatch)
-    #end
-    #unless AccountController.included_modules.include?(AccountControllerPatch)
-    #    AccountController.send(:include, AccountControllerPatch)
-    #end
+    unless UsersController.included_modules.include?(ExtendedUsersControllerPatch)
+        UsersController.send(:include, ExtendedUsersControllerPatch)
+    end
 end
 
 Redmine::Plugin.register :extended_profile_plugin do
