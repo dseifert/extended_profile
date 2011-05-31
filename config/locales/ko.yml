@@ -1,0 +1,23 @@
+# Translation by Ki Won Kim (http://xyz37.blog.me, xyz37@naver.com)
+ko:
+  label_company: "회사명"
+  label_company_site: "회사 홈페이지"
+  label_position: "직위"
+  label_project_of_interest: "관심있는 프로젝트"
+  label_personal_site: "개인 홈페이지"
+  label_blog: "블로그"
+  label_facebook: "페이스북"
+  label_facebook_profile_id_or_username: "페이스북 ID/사용자 이름"
+  label_twitter: "트위터"
+  label_twitter_username: "트위터 ID"
+  label_linkedin: "LinkedIn"
+
+  field_company_site: "회사 홈페이지"
+  field_personal_site: "개인 홈페이지"
+  field_blog: "블로그"
+  field_facebook: "페이스북"
+  field_twitter: "트위터"
+  field_linkedin: "LinkedIn"
+
+  sample_facebook_profile_id: "e.g. 100000066953233"
+  sample_twitter_username: "e.g. softjourn"
