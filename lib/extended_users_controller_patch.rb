@@ -7,6 +7,10 @@ module ExtendedUsersControllerPatch
         base.send(:include, InstanceMethods)
         base.class_eval do
             unloadable
+
+            alias_method :add, :extended_add # Redmine 1.0.x
+            alias_method :edit, :extended_edit if Redmine::VERSION::MAJOR == 1 && Redmine::VERSION::MINOR == 0 # Redmine 1.0.x
+
             alias_method :create, :extended_create
             alias_method :update, :extended_update
         end
@@ -88,6 +92,49 @@ module ExtendedUsersControllerPatch
             end
         end
 
+        # Original function for Redmine 1.0.x
+        #def add
+        #    if request.get?
+        #        @user = User.new(:language => Setting.default_language)
+        #    else
+        #        @user = User.new(params[:user])
+        #        @user.admin = params[:user][:admin] || false
+        #        @user.login = params[:user][:login]
+        #        @user.password, @user.password_confirmation = params[:password], params[:password_confirmation] unless @user.auth_source_id
+        #        if @user.save
+        #            Mailer.deliver_account_information(@user, params[:password]) if params[:send_information]
+        #            flash[:notice] = l(:notice_successful_create)
+        #            redirect_to(params[:continue] ? { :controller => 'users', :action => 'add' } :
+        #                                            { :controller => 'users', :action => 'edit', :id => @user })
+        #            return
+        #        end
+        #    end
+        #    @auth_sources = AuthSource.find(:all)
+        #end
+
+        def extended_add # Redmine 1.0.x
+            if request.get?
+                @user = User.new(:language => Setting.default_language)
+            else
+                @user = User.new(params[:user])
+                @user.admin = params[:user][:admin] || false
+                @user.login = params[:user][:login]
+                @user.password, @user.password_confirmation = params[:password], params[:password_confirmation] unless @user.auth_source_id
+                @user.profile.attributes = params[:profile]
+                if (@user.valid? & @user.valid_profile?) && @user.save
+                    @user.profile.save
+                    Mailer.deliver_account_information(@user, params[:password]) if params[:send_information]
+                    flash[:notice] = l(:notice_successful_create)
+                    redirect_to(params[:continue] ?
+                        { :controller => 'users', :action => 'add' } :
+                        { :controller => 'users', :action => 'edit', :id => @user })
+                    return
+                end
+            end
+            @auth_sources = AuthSource.find(:all)
+        end
+
+        # Original function
         #def update
         #    @user.admin = params[:user][:admin] if params[:user][:admin]
         #    @user.login = params[:user][:login] if params[:user][:login]
@@ -166,6 +213,59 @@ module ExtendedUsersControllerPatch
                     format.api { render_validation_errors(@user) }
                 end
             end
+        rescue ::ActionController::RedirectBackError
+            redirect_to(:controller => 'users', :action => 'edit', :id => @user)
+        end
+
+        # Original function for Redmine 1.0.x
+        #def edit
+        #    @user = User.find(params[:id])
+        #    if request.post?
+        #        @user.admin = params[:user][:admin] if params[:user][:admin]
+        #        @user.login = params[:user][:login] if params[:user][:login]
+        #        @user.password, @user.password_confirmation = params[:password], params[:password_confirmation] unless params[:password].nil? or params[:password].empty? or @user.auth_source_id
+        #        @user.group_ids = params[:user][:group_ids] if params[:user][:group_ids]
+        #        @user.attributes = params[:user]
+        #        was_activated = (@user.status_change == [User::STATUS_REGISTERED, User::STATUS_ACTIVE])
+        #        if @user.save
+        #            if was_activated
+        #                Mailer.deliver_account_activated(@user)
+        #            elsif @user.active? && params[:send_information] && !params[:password].blank? && @user.auth_source_id.nil?
+        #                Mailer.deliver_account_information(@user, params[:password])
+        #            end
+        #            flash[:notice] = l(:notice_successful_update)
+        #            redirect_to :back
+        #        end
+        #    end
+        #    @auth_sources = AuthSource.find(:all)
+        #    @membership ||= Member.new
+        #rescue ::ActionController::RedirectBackError
+        #    redirect_to :controller => 'users', :action => 'edit', :id => @user
+        #end
+
+        def extended_edit # Redmine 1.0.x
+            @user = User.find(params[:id])
+            if request.post?
+                @user.admin = params[:user][:admin] if params[:user][:admin]
+                @user.login = params[:user][:login] if params[:user][:login]
+                @user.password, @user.password_confirmation = params[:password], params[:password_confirmation] unless params[:password].nil? || params[:password].empty? || @user.auth_source_id
+                @user.group_ids = params[:user][:group_ids] if params[:user][:group_ids]
+                @user.attributes = params[:user]
+                @user.profile.attributes = params[:profile]
+                was_activated = (@user.status_change == [ User::STATUS_REGISTERED, User::STATUS_ACTIVE ])
+                if (@user.valid? & @user.valid_profile?) && @user.save
+                    @user.profile.save
+                    if was_activated
+                        Mailer.deliver_account_activated(@user)
+                    elsif @user.active? && params[:send_information] && !params[:password].blank? && @user.auth_source_id.nil?
+                        Mailer.deliver_account_information(@user, params[:password])
+                    end
+                    flash[:notice] = l(:notice_successful_update)
+                    redirect_to(:back)
+                end
+            end
+            @auth_sources = AuthSource.find(:all)
+            @membership ||= Member.new
         rescue ::ActionController::RedirectBackError
             redirect_to(:controller => 'users', :action => 'edit', :id => @user)
         end
