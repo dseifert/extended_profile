@@ -10,7 +10,7 @@ module ExtendedUserPatch
 
             has_one :extended_profile, :dependent => :destroy, :class_name => 'ExtendedProfile'
 
-            safe_attributes 'extended_profile'
+            safe_attributes 'extended_profile' unless Redmine::VERSION::MAJOR == 1 && Redmine::VERSION::MINOR == 0 # Redmine 1.0.x
 
             validates_presence_of :extended_profile
 
