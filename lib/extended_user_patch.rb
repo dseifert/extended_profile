@@ -18,7 +18,7 @@ module ExtendedUserPatch
                 self.extended_profile = ExtendedProfile.new(:user => self, :project_id => id)
             end
 
-            def profile=(params) # FIXME: redirect to some form if project is required
+            def profile=(params)
                 attrs = params.dup
                 self.extended_profile = ExtendedProfile.new(attrs.merge!(:user => self))
             end

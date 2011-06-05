@@ -18,6 +18,9 @@ Dispatcher.to_prepare :extended_profile_plugin do
     unless UsersController.included_modules.include?(ExtendedUsersControllerPatch)
         UsersController.send(:include, ExtendedUsersControllerPatch)
     end
+    unless AccountController.included_modules.include?(ExtendedAccountControllerPatch)
+        AccountController.send(:include, ExtendedAccountControllerPatch)
+    end
 end
 
 Redmine::Plugin.register :extended_profile_plugin do

@@ -26,7 +26,7 @@
     <% end %>
   </label>
   <%= select_tag('profile[project_id]',
-                 (settings[:require_project] ? '' : content_tag(:option)) +
+                 (settings[:require_project] && ((!user.identity_url && !session[:auth_source_registration]) || profile[:project_id].present?) ? '' : content_tag(:option)) +
                  options_from_collection_for_select(projects, :id, :name, profile[:project_id])) %>
 </p>
 <p>
