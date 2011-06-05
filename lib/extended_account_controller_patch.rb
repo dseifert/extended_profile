@@ -102,19 +102,8 @@ module ExtendedAccountControllerPatch
                         user.register
                         user.profile
 
-                        case Setting.self_registration
-                        when '1'
-                            register_by_email_activation(user) do
-                                onthefly_creation_failed(user)
-                            end
-                        when '3'
-                            register_automatically(user) do
-                                onthefly_creation_failed(user)
-                            end
-                        else
-                            register_manually_by_administrator(user) do
-                                onthefly_creation_failed(user)
-                            end
+                        register_automatically(user) do
+                            onthefly_creation_failed(user)
                         end
                     else
                         if user.active?
