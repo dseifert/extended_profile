@@ -3,22 +3,22 @@ es:
  #label_company_site: Company website
  #label_position: Position
   label_project_of_interest: Proyecto de interés
- #label_personal_site: Personal website
+  label_personal_site: Página personal
  #label_blog: Blog
- #label_facebook: Facebook
+  label_facebook: Página de Facebook
  #label_facebook_profile_id_or_username: Facebook ID/username
  #label_twitter: Twitter
  #label_twitter_username: Twitter username
- #label_linkedin: LinkedIn
+  label_linkedin: Página de LinkedIn
  #label_require_project_of_interest: Require project of interest
 
  #field_extended_profile: Extended profile
  #field_company_site: Company website
- #field_personal_site: Personal website
+  field_personal_site: Página personal
  #field_blog: Blog
- #field_facebook: Facebook
+  field_facebook: Página de Facebook
  #field_twitter: Twitter
- #field_linkedin: LinkedIn
+  field_linkedin: Página de LinkedIn
 
  #sample_facebook_profile_id: e.g. 100000066953233
  #sample_twitter_username: e.g. twitter
