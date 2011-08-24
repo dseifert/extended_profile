@@ -1,0 +1,25 @@
+# Simplified Chinese strings go here
+zh:
+  label_company: 公司名称
+  label_company_site: 公司网址
+  label_position: 职位
+  label_project_of_interest: 感兴趣的项目
+  label_personal_site: 个人主页
+  label_blog: 博客
+  label_facebook: Facebook
+  label_facebook_profile_id_or_username: Facebook ID/username
+  label_twitter: Twitter
+  label_twitter_username: Twitter username
+  label_linkedin: LinkedIn
+  label_require_project_of_interest: 感兴趣的项目必选
+
+  field_extended_profile: 扩展个人轮廓
+  field_company_site: 公司网址
+  field_personal_site: 个人主页
+  field_blog: 博客
+  field_facebook: Facebook
+  field_twitter: Twitter
+  field_linkedin: LinkedIn
+
+  sample_facebook_profile_id: e.g. 100000066953233
+  sample_twitter_username: e.g. twitter

@@ -1,24 +1,24 @@
 es:
- #label_company: Company
- #label_company_site: Company website
- #label_position: Position
+  label_company: Compañía
+  label_company_site: Página web de la compañía
+  label_position: Puesto de trabajo
   label_project_of_interest: Proyecto de interés
   label_personal_site: Página personal
- #label_blog: Blog
+  label_blog: Blog
   label_facebook: Página de Facebook
- #label_facebook_profile_id_or_username: Facebook ID/username
- #label_twitter: Twitter
- #label_twitter_username: Twitter username
+  label_facebook_profile_id_or_username: Usuario/ID de Facebook
+  label_twitter: Twitter
+  label_twitter_username: usuario de Twitter
   label_linkedin: Página de LinkedIn
- #label_require_project_of_interest: Require project of interest
+  label_require_project_of_interest: Requiere proyecto de interés
 
- #field_extended_profile: Extended profile
- #field_company_site: Company website
+  field_extended_profile: Perfil extendido
+  field_company_site: Página web de la compañía
   field_personal_site: Página personal
- #field_blog: Blog
+  field_blog: Blog
   field_facebook: Página de Facebook
- #field_twitter: Twitter
+  field_twitter: Twitter
   field_linkedin: Página de LinkedIn
 
- #sample_facebook_profile_id: e.g. 100000066953233
- #sample_twitter_username: e.g. twitter
+  sample_facebook_profile_id: p.e. 100000066953233
+  sample_twitter_username: p.e. twitter
