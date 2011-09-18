@@ -42,6 +42,6 @@
 <!--[eoform:user]-->
 </div>
 
-<%= hidden_field_tag('user[mail_notification]', Setting.default_notification_option) %>
+<%= hidden_field_tag('user[mail_notification]', Setting.default_notification_option) %><!-- FIXME: not for 1.0.x -->
 <%= submit_tag l(:button_submit) %>
 <% end %>
