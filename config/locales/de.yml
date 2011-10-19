@@ -1,0 +1,24 @@
+de:
+  label_company: Firma
+  label_company_site: Firmen-Webseite
+  label_position: Position
+  label_project_of_interest: Interessiert an Projekt
+  label_personal_site: Persönliche Website
+  label_blog: Blog
+  label_facebook: Facebook
+  label_facebook_profile_id_or_username: Facebook ID/Nutzername
+  label_twitter: Twitter
+  label_twitter_username: Twitter Nutzername
+  label_linkedin: LinkedIn
+  label_require_project_of_interest: Benötigt Angabe, an welchem Projekt Interesse besteht
+
+  field_extended_profile: Extended profile
+  field_company_site: Firmen-Webseite
+  field_personal_site: Persönliche Webseite
+  field_blog: Blog
+  field_facebook: Facebook
+  field_twitter: Twitter
+  field_linkedin: LinkedIn
+
+  sample_facebook_profile_id: z.B. 100000066953233
+  sample_twitter_username: z.B. twitter

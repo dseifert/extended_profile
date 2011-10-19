@@ -1,0 +1,24 @@
+fr:
+  label_company: Société
+  label_company_site: Site web de la société
+  label_position: Position
+  label_project_of_interest: Projet d'interêt
+  label_personal_site: Site web personnel
+  label_blog: Blog
+  label_facebook: Facebook
+  label_facebook_profile_id_or_username: ID/pseudo Facebook
+  label_twitter: Twitter
+  label_twitter_username: Pseudo Twitter
+  label_linkedin: LinkedIn
+  label_require_project_of_interest: Projet d'intérêt requis
+
+  field_extended_profile: Profil étendu
+  field_company_site: Site web de la société
+  field_personal_site: Site web personnel
+  field_blog: Blog
+  field_facebook: Facebook
+  field_twitter: Twitter
+  field_linkedin: LinkedIn
+
+  sample_facebook_profile_id: i.e. 100000066953233
+  sample_twitter_username: i.e. twitter
