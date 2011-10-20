@@ -11,6 +11,13 @@ class ExtendedProfile < ActiveRecord::Base
     validates_format_of :twitter, :with => /^[a-z0-9_]+$/i, :if => Proc.new { |profile| !profile.twitter.blank? }
     validates_format_of :linkedin, :with => /^(http|https):\/\//i, :if => Proc.new { |profile| !profile.linkedin.blank? }
 
+    def personal_id=(arg)
+        if arg.empty?
+            arg = nil
+        end
+        write_attribute(:personal_id, arg)
+    end
+
     def company_site=(arg)
         if arg.empty? || arg == 'http://'
             arg = nil

@@ -2,6 +2,10 @@
 <% projects = Project.all(:conditions => Project.visible_by(user), :order => 'name') %>
 
 <p>
+  <label for="profile_ersonal_id"><%= l(:label_personal_id) %></label>
+  <%= text_field_tag('profile[personal_id]', user.profile[:personal_id], :size => 30) %>
+</p>
+<p>
   <label for="profile_company"><%= l(:label_company) %></label>
   <%= text_field_tag('profile[company]', user.profile[:company], :size => 30) %>
 </p>

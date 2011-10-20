@@ -3,6 +3,10 @@
 <% profile = request.params[:company].nil? ? user.profile : request.params %>
 
 <p>
+  <label for="profile_personal_id"><%= l(:label_personal_id) %></label>
+  <%= text_field_tag('profile[personal_id]', profile[:personal_id], :size => 12) %>
+</p>
+<p>
   <label for="profile_company"><%= l(:label_company) %></label>
   <%= text_field_tag('profile[company]', profile[:company], :size => 30) %>
 </p>

@@ -1,5 +1,6 @@
 <% if user.profile[:company].present? ||
       user.profile[:company_site].present? ||
+      user.profile[:personal_id].present? ||
       user.profile[:position].present? ||
       user.profile[:personal_site].present? ||
       user.profile[:blog].present? ||
@@ -10,6 +11,9 @@
 <%= content_tag(:h3, l(:label_profile)) %>
 
 <ul>
+<% if user.profile[:personal_id].present? %>
+  <%= content_tag(:li, l(:label_personal_id) + ': ' + h(user.profile[:personal_id])) %>
+<% end %>
 <% if user.profile[:company].present? %>
   <%= content_tag(:li, l(:label_company) + ': ' + h(user.profile[:company])) %>
 <% end %>
