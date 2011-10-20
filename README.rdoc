@@ -1,0 +1,30 @@
+= Extended Profile plugin for redmine
+
+A Redmine plugin to extend Redmine's user profiles with additional fields.
+
+== Features
+
+* extend user profiles with additional fields
+
+== Getting the plugin
+
+A copy of the plugin can be downloaded from GitHub (search for extended_profile).
+
+== Installation and Setup
+
+1. Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins 
+2. Run the plugin migrations +rake db:migrate_plugins+
+3. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails)
+
+== Plugin configuration
+
+== Usage
+
+== License
+
+This plugin is licensed under the GNU GPL v2.  See LICENSE for details.
+
+== Contributions
+
+* original author Andriy Lesyuk (http://projects.andriylesyuk.com/projects/redmine-profile)
+* see CREDITS for additional contributions
